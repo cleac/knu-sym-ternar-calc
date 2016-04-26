@@ -21,39 +21,28 @@ namespace CustomNumbers
         /**
          * 64-bit signed integer initializer
          */
-        SymmetricalTernarInteger(const long val);
+        SymmetricalTernarInteger(const long);
 
         /**
          * 64-bit unsigned integer initializer
          */
         SymmetricalTernarInteger(const unsigned long = 0);
 
-        // String parsing conversion
         /**
-         * Builder from string object
+         * 32-bit signed integer initializer
          */
-        SymmetricalTernarInteger(const string&);
-
+        SymmetricalTernarInteger(const int);
 
         /**
-         * Set initializer for 64-bit unsigned integer
+         * 32-bit unsigned integer initializer
          */
-        const SymmetricalTernarInteger& operator=(const unsigned long);
-        /**
-         * Set initializer for 64-bit unsigned integer
-         */
-        const SymmetricalTernarInteger& operator=(const unsigned long&);
-
+        SymmetricalTernarInteger(const unsigned int);
 
         /**
-         * Set initializer for 64-bit signed integer
+         * Copy constructor
          */
-        const SymmetricalTernarInteger& operator=(const long);
-        /**
-         * Set initializer for 64-bit signed integer
-         */
-        const SymmetricalTernarInteger& operator=(const long&);
-
+        SymmetricalTernarInteger(const SymmetricalTernarInteger& val);
+        SymmetricalTernarInteger(const SymmetricalTernarInteger* val);
 
         /**
          * Caster for beatiful displayment of type
@@ -61,13 +50,6 @@ namespace CustomNumbers
          */
         operator string();
         operator string() const;
-
-        /**
-         * Caster for 32(64)-bit int
-         * @return decimal integer representation of value
-         */
-        operator char();
-        operator char() const;
 
         /**
          * Caster for 32(64)-bit int
@@ -83,30 +65,21 @@ namespace CustomNumbers
         operator long();
         operator long() const;
 
-
         const SymmetricalTernarInteger& operator+(const long);
-        const SymmetricalTernarInteger& operator+(const long) const;
         const SymmetricalTernarInteger& operator+(const SymmetricalTernarInteger&);
-        const SymmetricalTernarInteger& operator+(const SymmetricalTernarInteger&) const;
 
         const SymmetricalTernarInteger& operator-(const long);
-        const SymmetricalTernarInteger& operator-(const long) const;
         const SymmetricalTernarInteger& operator-(const SymmetricalTernarInteger&);
-        const SymmetricalTernarInteger& operator-(const SymmetricalTernarInteger&) const;
 
         const SymmetricalTernarInteger& operator*(const long);
-        const SymmetricalTernarInteger& operator*(const long) const;
         const SymmetricalTernarInteger& operator*(const SymmetricalTernarInteger&);
-        const SymmetricalTernarInteger& operator*(const SymmetricalTernarInteger&) const;
 
         const SymmetricalTernarInteger& operator/(const long);
-        const SymmetricalTernarInteger& operator/(const long) const;
         const SymmetricalTernarInteger& operator/(const SymmetricalTernarInteger&);
-        const SymmetricalTernarInteger& operator/(const SymmetricalTernarInteger&) const;
-
-        const unsigned char MAXGRADE = MAX_GRADE;
     private:
         SymmetricalTernarDigit value[MAX_GRADE];
+
+        void update(const SymmetricalTernarInteger& val);
     };
 }
 
